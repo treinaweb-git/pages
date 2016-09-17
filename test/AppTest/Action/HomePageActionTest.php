@@ -25,4 +25,13 @@ class HomePageActionTest extends \PHPUnit_Framework_TestCase
 
         $this->assertTrue($response instanceof Response);
     }
+
+    public function testResponsDuplicate()
+    {
+        $homePage = new HomePageAction($this->router->reveal(), null);
+        $response = $homePage(new ServerRequest(['/']), new Response(), function () {
+        });
+
+        $this->assertTrue($response instanceof Response);
+    }
 }
